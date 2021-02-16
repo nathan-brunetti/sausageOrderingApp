@@ -8,7 +8,7 @@ body {
   body:before {
     content: '';
     display: block;
-    background: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%);
+    background: #024f4b;
     height: 10px;
     width: 100%; }
 
@@ -445,10 +445,28 @@ body {
   font-size: 1.5rem;
   color: #303030; }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
   font-size: 5rem;
   font-family: 'Panama';
   font-weight: 600;
+  letter-spacing: -1px; }
+
+h4 {
+  font-size: 4rem;
+  font-family: 'Panama';
+  font-weight: 500;
+  letter-spacing: -1px; }
+
+h5 {
+  font-size: 3rem;
+  font-family: 'Panama';
+  font-weight: 300;
+  letter-spacing: -1px; }
+
+h6 {
+  font-size: 2rem;
+  font-family: 'Panama';
+  font-weight: 300;
   letter-spacing: -1px; }
 
 a {
@@ -456,7 +474,7 @@ a {
   color: #303030; }
 
 p a {
-  border-bottom: 2px solid #FFC40E; }
+  border-bottom: 2px solid #d6d94a; }
 
 p {
   line-height: 2;
@@ -488,7 +506,7 @@ p {
         transform: skew(-5deg); }
   .title a {
     border-bottom: 0;
-    background-image: linear-gradient(to right, rgba(255, 196, 14, 0.8) 100%, rgba(255, 196, 14, 0.8) 50%); }
+    background-image: linear-gradient(to right, rgba(214, 217, 74, 0.8) 100%, rgba(214, 217, 74, 0.8) 50%); }
 
 .title--single {
   max-width: 600px;
@@ -510,7 +528,7 @@ label {
 .form {
   background: white;
   padding: 2rem;
-  box-shadow: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%); }
+  box-shadow: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #d6d94a 85%, #48ded4 95%); }
   .form + .form {
     margin-top: 4rem; }
   .form h2 {
@@ -577,7 +595,7 @@ label {
     background: none;
     border: 0; }
     .flash__remove:hover {
-      color: #FFC40E; }
+      color: #d6d94a; }
   .flash:after {
     content: '';
     display: block;
@@ -607,7 +625,7 @@ label {
   padding: 0;
   -ms-flex-pack: justify;
       justify-content: space-between;
-  background: #303030; }
+  background: #010830; }
   .nav__section {
     display: -ms-flexbox;
     display: flex; }
@@ -618,7 +636,7 @@ label {
     display: -ms-flexbox;
     display: flex; }
   .nav__link {
-    background: #303030;
+    background: #010830;
     color: white;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     text-transform: uppercase;
@@ -642,7 +660,7 @@ label {
     .nav__link:hover, .nav__link--active {
       border-bottom-color: rgba(0, 0, 0, 0.2);
       border-right-color: rgba(0, 0, 0, 0.05);
-      background: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%) fixed; }
+      background: #024f4b; }
       .nav__link:hover svg, .nav__link--active svg {
         -ms-transform: scale(1.2);
             transform: scale(1.2); }
@@ -819,9 +837,9 @@ label {
         background: #e6e6e6;
         padding: 1rem 1rem 1rem 4rem; }
       .tag__choice input:checked + label {
-        background: #FFC40E; }
+        background: #d6d94a; }
   .tag__link {
-    background: #FFC40E;
+    background: #d6d94a;
     color: #303030;
     display: -ms-flexbox;
     display: flex;
@@ -955,7 +973,7 @@ label {
     left: 0;
     content: '';
     display: block;
-    background: linear-gradient(0, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%);
+    background: linear-gradient(0, #48ded4 0%, #a026bf 20%, #e82c75 60%, #d6d94a 85%, #48ded4 95%);
     position: absolute;
     height: 100%;
     background-attachment: fixed; }
@@ -988,7 +1006,7 @@ label {
     font-size: 1.2rem;
     color: #999999; }
   .review__stars {
-    color: #FFC40E; }
+    color: #d6d94a; }
   .review__body {
     padding: 2rem; }
   .review p {
@@ -1009,7 +1027,7 @@ label {
     .reviewer__stars input {
       display: none; }
       .reviewer__stars input:checked ~ label {
-        color: #FFC40E; }
+        color: #d6d94a; }
       .reviewer__stars input + label {
         font-size: 0;
         /* These are in the opposite DOM order
@@ -1035,7 +1053,7 @@ label {
           -ms-flex-order: 1;
               order: 1; }
         .reviewer__stars input + label:hover, .reviewer__stars input + label:hover ~ label {
-          color: #ffdd74; }
+          color: #e9eb9e; }
   .reviewer textarea {
     border: 0;
     outline: 0;
@@ -1102,7 +1120,7 @@ label {
 
 .button {
   border: 0;
-  background: #FFC40E;
+  background: #d6d94a;
   color: #303030;
   font-family: 'Panama';
   font-weight: 600; }
