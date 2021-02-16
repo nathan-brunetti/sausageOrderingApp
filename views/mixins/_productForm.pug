@@ -1,0 +1,16 @@
+mixin productForm(product = {})
+    form(action="/addProduct" method="POST" class="card")
+        label(for="name") Name
+        input(type="text" name="name")
+        label(for="description") Description
+        textarea(name="description")
+        label(for="price") Price 
+        input(type="Number" name="price")
+        - const options = ['Bulk', 'Link', 'Brat']
+        label(for="option") Options: 
+        ul.tags 
+            each option in options 
+                .tag.tag__choice
+                    input(type="checkbox" id=option value=option name="options")
+                    label(for=option) #{option}
+        input(type="submit" value="Save" class="button")
