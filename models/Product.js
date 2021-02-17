@@ -1,6 +1,9 @@
+const { Decimal128 } = require('bson');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const slug = require('slugs');
+require('mongoose-currency').loadType(mongoose);
+const Currency = mongoose.Types.Currency;
 
 const productSchema = new mongoose.Schema({
     name: {
@@ -13,21 +16,11 @@ const productSchema = new mongoose.Schema({
         trim: true
     },
     price: {
-        type: Number
+        type: Decimal128
     },
     slug: String,
     options: [String],
     tags: [String]
-});
-
-// Getter
-productSchema.path('price').get(function(num) {
-    return (num / 100).toFixed(2);
-  });
-  
-// Setter
-productSchema.path('price').set(function(num) {
-return num * 100;
 });
 
 productSchema.pre('save', function(next) {

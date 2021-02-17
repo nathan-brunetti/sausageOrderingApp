@@ -1,3 +1,4 @@
+const { Store } = require('express-session');
 const mongoose = require('mongoose');
 const Product = mongoose.model('Product');
 
@@ -13,4 +14,10 @@ exports.createProduct = async (req, res) => {
     const product = new Product(req.body);
     await product.save();
     res.redirect('/');
+};
+
+exports.getProducts = async (req, res) => {
+    const products = await Product.find();
+    // console.log(products);
+    res.render('products', { title: 'Products', products });
 };

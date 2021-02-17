@@ -21,7 +21,7 @@ exports.icon = (name) => fs.readFileSync(`./public/images/icons/${name}.svg`);
 exports.siteName = `Brunetti Sausages`;
 
 exports.menu = [
-  { slug: '/stores', title: 'Stores', icon: 'store', },
+  { slug: '/products', title: 'Products', icon: 'store', },
   { slug: '/tags', title: 'Tags', icon: 'tag', },
   { slug: '/top', title: 'Top', icon: 'top', },
   { slug: '/addStore', title: 'Add Store', icon: 'add', },

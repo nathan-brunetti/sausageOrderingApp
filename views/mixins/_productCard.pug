@@ -1,0 +1,9 @@
+mixin productCard(product = {})
+    .product 
+        .product__hero 
+            img(src=`/uploads/${product.photo || 'sausage.jpg'}`)
+        .product__details
+            h4.title
+                a(href=`/product/${product.slug}`) #{product.name}
+            p.product__description #{product.description}
+            p.product__price $#{product.price}

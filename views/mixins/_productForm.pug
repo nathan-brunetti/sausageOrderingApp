@@ -5,7 +5,7 @@ mixin productForm(product = {})
         label(for="description") Description
         textarea(name="description")
         label(for="price") Price 
-        input(type="Number" name="price")
+        input(type="number" min="0.01" max="2500" step="0.01" name="price")
         - const options = ['Bulk', 'Link', 'Brat']
         label(for="option") Options: 
         ul.tags 
