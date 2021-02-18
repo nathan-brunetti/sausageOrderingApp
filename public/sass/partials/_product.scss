@@ -60,9 +60,11 @@
 
 .product__action {
   font-size: 10px;
+  position: relative;
+  top: 125px;
   svg {
     width: 25px;
-    fill: white
+    fill: $green;
   }
   &--edit {
     a {

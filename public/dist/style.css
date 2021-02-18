@@ -855,10 +855,12 @@ label {
       justify-content: space-around; }
 
 .product__action {
-  font-size: 10px; }
+  font-size: 10px;
+  position: relative;
+  top: 125px; }
   .product__action svg {
     width: 25px;
-    fill: white; }
+    fill: #024f4b; }
   .product__action--edit a {
     border-bottom: 0; }
 
