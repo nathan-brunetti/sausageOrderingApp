@@ -2,8 +2,6 @@ const { Decimal128 } = require('bson');
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 const slug = require('slugs');
-require('mongoose-currency').loadType(mongoose);
-const Currency = mongoose.Types.Currency;
 
 const productSchema = new mongoose.Schema({
     name: {
@@ -16,7 +14,17 @@ const productSchema = new mongoose.Schema({
         trim: true
     },
     price: {
-        type: Decimal128
+        amount: {
+            type: Number
+        },
+        scale: {
+            type: Number,
+            default: '10'
+        },
+        currency: {
+            type: String,
+            default: 'USD'
+        }
     },
     slug: String,
     options: [String],

@@ -1,5 +1,5 @@
 mixin productCard(product = {})
-    .product 
+    .product
         .product__hero
             img(src=`/uploads/${product.photo || 'sausage.jpg'}`)
         .product__details
@@ -9,4 +9,5 @@ mixin productCard(product = {})
             h4.title
                 a(href=`/product/${product.slug}`) #{product.name}
             p.product__description #{product.description}
-            p.product__price $#{product.price}
+            - const amount = product.price.amount
+            p.product__price $#{(amount/100).toFixed(2)}

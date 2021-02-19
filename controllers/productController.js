@@ -1,4 +1,3 @@
-const { Store } = require('express-session');
 const mongoose = require('mongoose');
 const Product = mongoose.model('Product');
 
@@ -24,9 +23,10 @@ exports.getProducts = async (req, res) => {
 
 exports.editProduct = async (req, res) => {
     // 1. Find the store give the ID
-    const selectedProduct = await Product.findOne({ _id: req.params.id });
+    const product = await Product.findOne({ _id: req.params.id });
+    // console.log(selectedProduct.price);
     // 2. Confirm they are an Admin so they can edit the products
     // TODO
     // 3. Render out the edit form so the Admin can update the product
-    res.render('editProduct', { title: `Edit product: ${selectedProduct.name}`, selectedProduct });
+    res.render('editProduct', { title: `Edit product: ${product.name}`, product });
 };
