@@ -1,7 +1,7 @@
 mixin productCard(product = {})
     .product
         .product__hero
-            img(src=`/uploads/${product.photo || 'sausage.jpg'}`)
+            img(src=`/images/photos/${product.photo || 'sausage.jpg'}`)
         .product__details
             .product__action.product__action--edit
                 a(href=`/products/${product._id}/edit`)

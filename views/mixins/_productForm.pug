@@ -1,17 +1,29 @@
 mixin productForm(product = {})
-    form(action=`/add/${product._id || ''}` method="POST" class="card")
+    form(action=`/addProduct/${product._id || ''}` method="POST" class="card" enctype="multipart/form-data")
         label(for="name") Name
         input(type="text" name="name" value=product.name)
         label(for="description") Description
         textarea(name="description")= product.description
-        label(for="amount") Price 
-        input(type="number" min="0.01" max="2500" step="0.01" name="price[amount]")
+        label(for="price[amount]") Price
+        //- pre= h.dump(product)
+        //- If there isn't a product, then leave the input blank
+        if !product._id
+            input(type="text" min="0.01" max="2500" step="0.01" name="price[amount]")
+        //- If there is a product, fill the price input with what is in the database
+        else
+            //- p There is a product
+            input(type="text" min="0.01" max="2500" step="0.01" name="price[amount]" value=product.price.amount)
+        //- Image upload
+        label(for="photo") Photo 
+            input(type="file" name="photo" id="photo" accept="image/gif, image/png, image/jpeg, image/jpg")
+            if product.photo
+                img(src=`/uploads/${product.photo}` alt=store.name width="200")
         - const options = ['Bulk', 'Link', 'Brat']
         - const selectedOptions = product.options || []
         label(for="option") Options: 
         ul.tags 
             each option in options 
                 .tag.tag__choice
-                    input(type="checkbox" id=option value=option name="options" checked=(selectedOptions.includes(options)))
+                    input(type="checkbox" id=option value=option name="options" checked=(selectedOptions.includes(option)))
                     label(for=option) #{option}
         input(type="submit" value="Save" class="button")

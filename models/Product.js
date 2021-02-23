@@ -14,9 +14,7 @@ const productSchema = new mongoose.Schema({
         trim: true
     },
     price: {
-        amount: {
-            type: Number
-        },
+        amount: Number,
         scale: {
             type: Number,
             default: '10'
