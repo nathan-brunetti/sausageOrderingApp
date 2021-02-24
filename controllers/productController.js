@@ -31,7 +31,7 @@ exports.resize = async (req, res, next) => {
         return;
     }
     const extension = req.file.mimetype.split('/')[1];
-    req.body.photo = `${uuid.v4()}.${extension}}`;
+    req.body.photo = `${uuid.v4()}.${extension}`;
     // now we resize
     const photo = await jimp.read(req.file.buffer);
     await photo.resize(800, jimp.AUTO);
@@ -74,4 +74,17 @@ exports.updateProduct = async (req, res) => {
     // req.flash('success', `Successfully updated <strong>${product.name}</strong>. <a href="/products/${product.slug}">View the product -></a>`);
     res.redirect(`/products/${product._id}/edit`);
     // 2. Redirect them to the store and tell them it worked
+};
+
+exports.getProductBySlug = async (req, res, next) => {
+    // 1. Find the store give the ID
+    const product = await Product.findOne({ slug: req.params.slug });
+    // checks that the data is coming back
+    // res.json(product);
+    // checks if there is a store, if not it goes to the next middleware
+    if (!product) {
+        next();
+        return;
+    }
+    res.render('product', { title: product.name, product });
 };

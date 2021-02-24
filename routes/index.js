@@ -10,14 +10,17 @@ const { catchErrors } = require('../handlers/errorHandlers');
 router.get('/', catchErrors(productController.getProducts));
 router.get('/products', catchErrors(productController.getProducts));
 router.get('/addProduct', productController.addProduct);
+router.get('/product/:slug', catchErrors(productController.getProductBySlug));
 
 router.post('/addProduct',
-    productController.upload,
-    catchErrors(productController.resize),
+    productController.upload, // middle ware
+    catchErrors(productController.resize), // middle ware
     catchErrors(productController.createProduct)
 );
 
 router.post('/addProduct/:id',
+    productController.upload, // middle ware
+    catchErrors(productController.resize), // middle ware
     catchErrors(productController.updateProduct)
 );
 

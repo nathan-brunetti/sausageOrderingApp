@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    .inner
+        //- pre= h.dump(product)
+        .productContainer
+            .left
+                img.productContainer__image(src=`/uploads/${product.photo}`)
+            .right.productContainer__info
+                .npContainer
+                    h2.npContainer__name #{product.name}
+                    .npContainer__qty
+                        script.
+                            const minus = function() {
+                                document.getElementById('qty').stepDown();
+                            }
+                            const plus = function() {
+                                document.getElementById('qty').stepUp();
+                            }
+                        button(onclick="minus()" class="minus") -
+                        input(id="qty" type="number" step="1" min="1" max="" name="quantity" value="1" class="input-text qty")
+                        button(onclick="plus()" class="plus") +
+                - const amount = product.price.amount
+                h4 $#{(amount/100).toFixed(2)}
+                hr
+                p #{product.description}
+                - const options = product.options
+                label(for="options") Choose an option:
+                select(name="options" id="options")
+                    each option in options
+                        option(value=option) #{option}

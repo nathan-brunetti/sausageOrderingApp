@@ -26,7 +26,8 @@ const productSchema = new mongoose.Schema({
     },
     slug: String,
     options: [String],
-    tags: [String]
+    tags: [String],
+    photo: String
 });
 
 productSchema.pre('save', function(next) {
